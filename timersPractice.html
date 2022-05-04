@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <button id="controller">Click me</button>
+    </div>
+</div>
+</body>
+<script>
+    const myButton = document.getElementById("controller");
+    
+    myButton.addEventListener('click', function () {
+        //This will happen in 1000ms, or 1 second
+        setTimeout(function(){
+            console.log('1 second...');
+            myButton.remove();
+        }, 1000);
+    });
+</script>
+</html>
