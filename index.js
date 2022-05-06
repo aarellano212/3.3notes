@@ -19,6 +19,7 @@ cardList.addEventListener('click', function (e) {
     if (e.target.classList.contains('active')){
         e.target.classList.remove('active');
         e.target.classList.add('inactive');
+        numPoints++;
         return
     }
     e.target.remove();
