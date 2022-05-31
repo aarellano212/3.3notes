@@ -4,24 +4,63 @@
     <meta charset="UTF-8">
     <title>Timer Practice</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .purple{
+            background-color: purple;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="content">
-        <button id="controller">Click me</button>
+        <button id="button">Click me</button>
+        <button id="randomColor">Random BG Color</button>
+        <button id="cancelRandColor">Cancel Random BG</button>
     </div>
 </div>
 </body>
 <script>
-    const myButton = document.getElementById("controller");
+    const myButton = document.getElementById("button");
     const content = document.querySelector('content');
-    
+
+    const colorButton = document.getElementById("randomColor")
+    const colorList = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const cancelColor = document.getElementById("cancelRandColor");
+
     myButton.addEventListener('click', function () {
         //This will happen in 1000ms, or 1 second
         setTimeout(function(){
-            console.log('1 second...');
+            console.log('3 seconds..');
             myButton.remove();
-        }, 1000);
+        }, 3000);
     });
+
+    colorButton.addEventListener('click', function () {
+        let randColor = colorList[Math.floor(Math.random() * colorList.length)];
+        setInterval(function () {
+           randColor = colorList[Math.floor(Math.random() * colorList.length)];
+           content.classList.remove(randColor);
+           content.classList.add(randColor);
+           randColor.remove();
+       }, 5000);
+    });
+
+    cancelColor.addEventListener('click', function () {
+        if (interval) {
+            clearInterval(interval);
+        }
+    })
 </script>
 </html>
